@@ -1,0 +1,215 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(135deg, #89CFF0, #4169E1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    color: white;
+    padding: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+/* 🔹 Animated Cloud Background */
+.cloud {
+    position: absolute;
+    width: 120px;
+    height: 70px;
+    background: white;
+    border-radius: 50%;
+    opacity: 0.5;
+    filter: blur(5px);
+    animation: moveClouds linear infinite;
+}
+
+.cloud::before,
+.cloud::after {
+    content: "";
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+}
+
+.cloud::before {
+    width: 80px;
+    height: 80px;
+    top: -40px;
+    left: 20px;
+}
+
+.cloud::after {
+    width: 100px;
+    height: 100px;
+    top: -50px;
+    left: 50px;
+}
+
+/* Smooth Cloud Animation */
+@keyframes moveClouds {
+    from {
+        transform: translateX(-120vw);
+    }
+    to {
+        transform: translateX(120vw);
+    }
+}
+
+/* Different Cloud Sizes & Positions */
+.cloud:nth-child(1) { top: 5%; animation-duration: 35s; }
+.cloud:nth-child(2) { top: 20%; left: 50px; animation-duration: 40s; }
+.cloud:nth-child(3) { top: 50%; left: 100px; animation-duration: 50s; }
+.cloud:nth-child(4) { top: 70%; left: -50px; animation-duration: 38s; }
+.cloud:nth-child(5) { top: 85%; left: 200px; animation-duration: 45s; }
+
+.container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(15px);
+    position: relative;
+    z-index: 10;
+    transition: all 0.3s ease-in-out;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    font-weight: 600;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* 🔹 Input & Button */
+.search-box {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.search-box input {
+    width: 70%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-box input:focus {
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.5);
+}
+
+.search-box button {
+    background: #FFD700;
+    color: black;
+    border: none;
+    padding: 12px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.search-box button:hover {
+    background: #FFA500;
+    transform: scale(1.05);
+}
+
+.weather-card {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    border-radius: 10px;
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.6;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    min-height: 120px;
+    transition: all 0.3s ease-in-out;
+}
+
+.weather-card:hover {
+    transform: scale(1.03);
+}
+
+.weather-card div {
+    margin: 5px 0;
+}
+
+.error {
+    color: #FF4C4C;
+    font-weight: bold;
+    transition: all 0.3s ease-in-out;
+}
+
+.loading {
+    color: #FFD700;
+    font-style: italic;
+}
+
+/* 🔹 Responsive Design */
+
+/* Small devices (max-width: 768px) - Phones */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        max-width: 100%;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    .search-box {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .search-box input {
+        width: 100%;
+        padding: 14px;
+        font-size: 18px;
+    }
+
+    .search-box button {
+        width: 100%;
+        padding: 14px;
+        font-size: 18px;
+    }
+
+    .weather-card {
+        font-size: 14px;
+        padding: 12px;
+    }
+}
+
+/* Extra Small devices (max-width: 480px) - Small phones */
+@media (max-width: 480px) {
+    h1 {
+        font-size: 18px;
+    }
+
+    .search-box input,
+    .search-box button {
+        font-size: 16px;
+        padding: 12px;
+    }
+
+    .weather-card {
+        font-size: 14px;
+    }
+}
